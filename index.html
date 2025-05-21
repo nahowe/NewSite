@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walder Wellness</title>
+    <title>Howe and Co.</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,7 +31,7 @@
             </div>
             
             <div class="logo">
-                <img src="/api/placeholder/280/100" alt="Walder Wellness" style="content: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"280\" height=\"100\" viewBox=\"[...]">
+                <img src="/api/placeholder/280/100" alt="Howe and Co." style="content: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"280\" height=\"100\" viewBox=\"[...]">
             </div>
             
             <div class="search-container">
@@ -136,7 +136,7 @@
         <div class="container">
             <div class="cta-content">
                 <h2 class="cta-heading">Want more simple, nutritious recipes?</h2>
-                <p class="cta-text">Join the Walder Wellness email list and get a FREE copy of our 15 Top Recipes E-book!</p>
+                <p class="cta-text">Join the Howe and Co. email list and get a FREE copy of our 15 Top Recipes E-book!</p>
                 <form>
                     <div class="form-group">
                         <input type="text" class="form-input" placeholder="First Name">
@@ -216,30 +216,32 @@
         let startX;
         let scrollLeft;
 
-        carousel.addEventListener('mousedown', (e) => {
-            isDown = true;
-            carousel.style.cursor = 'grabbing';
-            startX = e.pageX - carousel.offsetLeft;
-            scrollLeft = carousel.scrollLeft;
-        });
+        if (carousel) {
+            carousel.addEventListener('mousedown', (e) => {
+                isDown = true;
+                carousel.style.cursor = 'grabbing';
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+            });
 
-        carousel.addEventListener('mouseleave', () => {
-            isDown = false;
-            carousel.style.cursor = 'grab';
-        });
+            carousel.addEventListener('mouseleave', () => {
+                isDown = false;
+                carousel.style.cursor = 'grab';
+            });
 
-        carousel.addEventListener('mouseup', () => {
-            isDown = false;
-            carousel.style.cursor = 'grab';
-        });
+            carousel.addEventListener('mouseup', () => {
+                isDown = false;
+                carousel.style.cursor = 'grab';
+            });
 
-        carousel.addEventListener('mousemove', (e) => {
-            if(!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - carousel.offsetLeft;
-            const walk = (x - startX) * 2; // Scroll speed
-            carousel.scrollLeft = scrollLeft - walk;
-        });
+            carousel.addEventListener('mousemove', (e) => {
+                if(!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 2; // Scroll speed
+                carousel.scrollLeft = scrollLeft - walk;
+            });
+        }
     </script>
 </body>
 </html>
